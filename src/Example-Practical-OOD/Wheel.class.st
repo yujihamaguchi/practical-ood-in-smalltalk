@@ -13,6 +13,11 @@ Wheel class >> rim: rimInteger tire: tireFloat [
 	^ self new setRim: rimInteger tire: tireFloat 
 ]
 
+{ #category : #'as yet unclassified' }
+Wheel >> diameter [
+	^ rim + (tire * 2)
+]
+
 { #category : #accessing }
 Wheel >> rim [
 	^ rim 

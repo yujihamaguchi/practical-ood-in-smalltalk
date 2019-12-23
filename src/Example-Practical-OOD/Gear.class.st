@@ -4,37 +4,42 @@ Class {
 	#instVars : [
 		'chainring',
 		'cog',
-		'rim',
-		'tire'
+		'wheel'
 	],
 	#category : #'Example-Practical-OOD'
 }
 
 { #category : #'instance creation' }
-Gear class >> chainring: chainringNumber cog: cogNumber [
-	^ self basicNew setChainring: chainringNumber cog: cogNumber
+Gear class >> chainring: chainringInteger cog: cogInteger [
+	^ self basicNew setChainring: chainringInteger cog: cogInteger
 ]
 
 { #category : #'instance creation' }
-Gear class >> chainring: chainringInteger cog: cogInteger rim: rimInteger tire: tireFloat [
-	^ self basicNew setChainring: chainringInteger cog: cogInteger rim: rimInteger tire: tireFloat
+Gear class >> chainring: chainringInteger cog: cogInteger wheel: aWheel [
+	^ self basicNew setChainring: chainringInteger cog: cogInteger wheel: aWheel
 ]
 
-{ #category : #arithmetic }
+{ #category : #calculating }
 Gear >> gearInches [
-	^ self ratio * (rim + (tire * 2))
+	^ self ratio * wheel diameter
 ]
 
-{ #category : #arithmetic }
+{ #category : #calculating }
 Gear >> ratio [
 	^ (chainring / cog) asFloat 
 ]
 
-{ #category : #private }
-Gear >> setChainring: chainringNumber cog: cogNumber rim: rimInteger tire: tireFloat [
+{ #category : #initialization }
+Gear >> setChainring: chainringNumber cog: cogNumber [
 	chainring := chainringNumber.
 	cog := cogNumber.
-	rim := rimInteger.
-	tire := tireFloat.
+	^ self
+]
+
+{ #category : #private }
+Gear >> setChainring: chainringNumber cog: cogNumber wheel: aWheel [
+	chainring := chainringNumber.
+	cog := cogNumber.
+	wheel := aWheel .
 	^ self
 ]
