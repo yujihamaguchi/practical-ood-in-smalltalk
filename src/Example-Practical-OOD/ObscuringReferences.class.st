@@ -12,7 +12,7 @@ ObscuringReferences >> data: aData [
 	data := aData
 ]
 
-{ #category : #arithmetic }
+{ #category : #calculating }
 ObscuringReferences >> diameters [
 	^ data collect: [ :cell | (cell at: 1) + ((cell at: 2) * 2) ]
 ]
